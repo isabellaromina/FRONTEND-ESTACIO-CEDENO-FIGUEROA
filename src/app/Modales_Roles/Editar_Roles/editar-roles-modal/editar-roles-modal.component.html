@@ -1,0 +1,16 @@
+<div class="modal" *ngIf="rol">
+    <div class="modal-content">
+      <h2>Editar Rol</h2>
+      <form (ngSubmit)="onSave()">
+        <label>Nombre del Rol:</label>
+        <input [(ngModel)]="rol!.nombreRol" name="nombreRol" required />
+  
+        <label>Descripción:</label>
+        <input [(ngModel)]="rol!.descripcionDeRol" name="descripcionDeRol" required />
+  
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="onClose()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  

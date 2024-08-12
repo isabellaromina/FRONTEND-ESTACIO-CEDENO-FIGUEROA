@@ -1,0 +1,49 @@
+<header>
+<div class="DivisionTres">
+    <h2 class="Titulo_2">Gestión de Roles</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Rol</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rol of roles">
+          <td>{{ rol.id }}</td>
+          <td>{{ rol.nombreRol }}</td>
+          <td>{{ rol.descripcionDeRol }}</td>
+          <td>
+            <button (click)="openViewModal(rol)">Observar</button>
+            <button (click)="openEditModal(rol)">Editar</button>
+            <button (click)="openDeleteModal(rol)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modales -->
+  <app-editar-roles-modal 
+    *ngIf="showEditModal" 
+    [rol]="selectedRol" 
+    (close)="closeEditModal()" 
+    (save)="saveChanges($event)">
+  </app-editar-roles-modal >
+  
+  <app-eliminar-roles-modal 
+    *ngIf="showDeleteModal" 
+    [rol]="selectedRol!" 
+    (close)="closeDeleteModal()" 
+    (delete)="deleteRol($event)">
+  </app-eliminar-roles-modal>
+  
+  <app-observar-roles-modal 
+    *ngIf="showViewModal" 
+    [rol]="selectedRol" 
+    (close)="closeViewModal()">
+  </app-observar-roles-modal>
+  
+</header>

@@ -1,0 +1,77 @@
+
+<header>
+<div class="DivisionDos">
+  <h2 class="Titulo">Listado de Usuarios</h2>
+
+  <div class="filters">
+    <label for="cedula">Cédula:</label>
+    <input id="cedula" type="text" [(ngModel)]="cedulaFilter" (ngModelChange)="applyFilters()" />
+  
+    <label for="apellidos">Apellidos:</label>
+    <input id="apellidos" type="text" [(ngModel)]="apellidosFilter" (ngModelChange)="applyFilters()" />
+  
+    <label for="id">ID:</label>
+    <input id="id" type="number" [(ngModel)]="idFilter" (ngModelChange)="applyFilters()" />
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cédula</th>
+        <th>Apellidos</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.cedula }}</td>
+        <td>{{ usuario.apellidos }}</td>
+        <td>{{ usuario.telefono }}</td>
+        <td>{{ usuario.direccion }}</td>
+        <td>{{ usuario.nombreRol }}</td>
+        <td>
+          <button (click)="openEditModal(usuario)">Editar</button>
+          <button (click)="openDeleteModal(usuario)">Eliminar</button>
+          <button (click)="openViewModal(usuario)">Ver</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<div class="DivisionBoton">
+  <button class="AgregarBoton" (click)="openAddModal()">Agregar Usuario</button>
+</div>
+  
+</div>
+
+
+<app-edit-modal
+  *ngIf="showEditModal"
+  [usuario]="selectedUsuario"
+  (close)="closeEditModal()"
+  (save)="saveChanges($event)">
+</app-edit-modal>
+
+<app-delete-modal
+  *ngIf="showDeleteModal"W
+  [usuario]="selectedUsuario"
+  (close)="closeDeleteModal()"
+  (confirm)="deleteUsuario($event)">
+</app-delete-modal>
+
+<app-view-modal
+  *ngIf="showViewModal"
+  [usuario]="selectedUsuario"
+  (close)="closeViewModal()">
+</app-view-modal>
+
+<app-add-modal 
+  *ngIf="showAddModal" 
+  (close)="closeAddModal()" 
+  (save)="addUsuario($event)">
+</app-add-modal>
+</header>

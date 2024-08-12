@@ -1,0 +1,23 @@
+<div class="modal" *ngIf="usuario">
+    <div class="modal-content">
+      <h2>Editar Usuario</h2>
+      <form>
+        <label>Cédula:</label>
+        <input [(ngModel)]="usuario!.cedula" name="cedula" required>
+        
+        <label>Apellidos:</label>
+        <input [(ngModel)]="usuario!.apellidos" name="apellidos" required>
+        
+        <label>Teléfono:</label>
+        <input [(ngModel)]="usuario!.telefono" name="telefono" required>
+        
+        <label>Dirección:</label>
+        <input [(ngModel)]="usuario!.direccion" name="direccion" required>
+        
+        <div class="modal-buttons">
+          <button type="button" (click)="saveChanges()">Guardar</button>
+          <button type="button" (click)="cancel()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>

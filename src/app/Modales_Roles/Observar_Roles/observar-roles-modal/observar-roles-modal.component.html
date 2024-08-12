@@ -1,0 +1,9 @@
+<div class="modal" (click)="onClose()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Detalles del Rol</h2>
+      <p><strong>ID:</strong> {{ rol?.id }}</p>
+      <p><strong>Nombre del Rol:</strong> {{ rol?.nombreRol }}</p>
+      <p><strong>Descripción:</strong> {{ rol?.descripcionDeRol }}</p>
+      <button (click)="onClose()">Cerrar</button>
+    </div>
+  </div>

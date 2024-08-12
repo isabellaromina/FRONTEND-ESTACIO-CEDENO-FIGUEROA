@@ -1,0 +1,58 @@
+<div class="container py-4 border mt-5">
+  <h2 class="Titulo">Ordenes de Compra</h2>
+    <div class="container py-4 border  mt-5">
+        <div class="container text-center">
+          <form (ngSubmit)="guardarOrden()">
+    
+            <div class="form-group">
+                <input id="id" [(ngModel)]="orden.id" name="id" class="form-control" type="hidden">
+
+              <label for="clienteId">Cliente</label>
+              <select id="clienteId" [(ngModel)]="orden.clienteId" name="clienteId" class="form-control">
+                <option *ngFor="let cliente of listaClientes" [value]="cliente.id">
+                  {{ cliente.nombre }}
+                </option>
+              </select>
+      
+              <input id="solicitudCompraId" [(ngModel)]="orden.solicitudCompraId" name="solicitudCompraId" class="form-control" type="hidden">
+      
+              <label for="descripcion">Descripción</label>
+              <input id="descripcion" [(ngModel)]="orden.descripcion" name="descripcion" class="form-control">
+      
+              <button type="submit" class="btn btn-outline-success m-2">Guardar Orden</button>
+            </div>
+          </form>
+        </div>
+      
+        <div class="container mt-4">
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nombre del Cliente</th>
+                <th scope="col">Solicitud Compra ID</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let orden of listaOrdenes">
+                <td>{{ obtenerNombreCliente(orden.clienteId) }}</td>
+                <td>{{ orden.solicitudCompraId }}</td>
+                <td>{{ orden.descripcion }}</td>
+                <td>
+                  <button class="btn btn-outline-warning" (click)="verOrden(orden)">Ver</button>
+                  <button class="btn btn-outline-primary m-2" (click)="seleccionarOrden(orden)">Editar</button>
+                  <button class="btn btn-outline-danger" (click)="eliminarOrden(orden.id)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <!-- Modal para ver detalles de la orden -->
+      <app-observar-orden 
+        *ngIf="showViewModal" 
+        [orden]="selectedOrden" 
+        (close)="closeViewModal()">
+      </app-observar-orden>

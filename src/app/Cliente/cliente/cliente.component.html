@@ -1,0 +1,67 @@
+
+<header>
+  <h2 class="Titulo">Registro De Clientes</h2>
+<div class="container py-4 ">
+  <div class="container text-center">
+    
+    <form (ngSubmit)="agregarCliente()">
+      <h2 class="Titulo">Registro De Clientes</h2>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" [(ngModel)]="cliente.nombre" name="nombre" class="form-control-lg">
+        
+        <label for="apellido">Apellidos</label>
+        <input id="apellido" [(ngModel)]="cliente.apellido" name="apellido" class="form-control-lg">
+       
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" [(ngModel)]="cliente.telefono" name="telefono" class="form-control-lg">
+      
+        <label for="correo">Correo</label>
+        <input id="correo" [(ngModel)]="cliente.correo" name="correo" class="form-control-lg">
+     
+        <label for="direccion">Dirección</label>
+        <input id="direccion" [(ngModel)]="cliente.direccion" name="direccion" class="form-control-lg">
+       
+        <label for="genero">Género</label>
+        <input id="genero" [(ngModel)]="cliente.genero" name="genero" class="form-control-lg">
+      
+        <br>
+        <button type="submit" class="btn btn-outline-success m-2">Agregar Cliente</button>
+        <button type="button" class="btn btn-outline-primary m-2" (click)="actualizarCliente()">Actualizar Cliente</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container mt-4">
+    <table class="table table-success table-striped" id="dataTable">
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Género</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elem of listaCliente">
+          <td>{{ elem.id }}</td>
+          <td>{{ elem.nombre }}</td>
+          <td>{{ elem.apellido }}</td>
+          <td>{{ elem.telefono }}</td>
+          <td>{{ elem.correo }}</td>
+          <td>{{ elem.direccion }}</td>
+          <td>{{ elem.genero }}</td>
+          <td>
+            <button class="btn btn-outline-warning" (click)="editarCliente(elem)">Editar</button>
+            <button class="btn btn-outline-danger m-2" (click)="eliminarCliente(elem.id!)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</header>

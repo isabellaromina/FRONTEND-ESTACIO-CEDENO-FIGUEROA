@@ -1,0 +1,62 @@
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #bdd3b4;
+    border: 2px solid #ddd;
+    border-radius: 8px; 
+    overflow: hidden; 
+  }
+  
+  thead {
+    background-color: #bdd3b4;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 3px solid #ddd;
+  }
+  
+  th {
+    background-color:  #afcfa2;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    width: 75%;
+    background-color: #67e463;
+    border:  #cadb2b;
+    color: rgb(0, 0, 0);
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 5px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  button:hover {
+    background-color:  #17df10;
+  }
+
+  
+  .Titulo_2 {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%; 
+    margin: 0 auto; 
+    margin-bottom: 20px;
+  }
+
+  .DivisionTres {
+    padding-top: 80px; 
+  }

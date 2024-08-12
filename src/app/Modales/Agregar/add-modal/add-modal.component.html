@@ -1,0 +1,26 @@
+<div class="modal">
+    <div class="modal-content">
+      <h2>Agregar Usuario</h2>
+      <form (ngSubmit)="onSave()">
+        <label>Cédula:</label>
+        <input [(ngModel)]="newUsuario.cedula" name="cedula" required />
+        
+        <label>Apellidos:</label>
+        <input [(ngModel)]="newUsuario.apellidos" name="apellidos" required />
+        
+        <label>Teléfono:</label>
+        <input [(ngModel)]="newUsuario.telefono" name="telefono" required />
+        
+        <label>Dirección:</label>
+        <input [(ngModel)]="newUsuario.direccion" name="direccion" required />
+        
+        <label>Rol:</label>
+        <select [(ngModel)]="newUsuario.rolId" name="rolId" required>
+          <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombreRol }}</option>
+        </select>
+        
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="onClose()">Cancelar</button>
+      </form>
+    </div>
+  </div>
